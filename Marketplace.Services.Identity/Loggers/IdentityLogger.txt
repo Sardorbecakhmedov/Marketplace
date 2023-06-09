@@ -1,0 +1,104 @@
+2023-06-09 06:29:09.328 +05:00 [ERR] Internal error!
+System.Exception: Username or Password incorrect!
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 65
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\ErrorHandlerMiddeware.cs:line 19
+2023-06-09 07:00:32.551 +05:00 [ERR] Internal error!
+System.Exception: Username or Password incorrect!
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 65
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.ErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\ErrorHandlerMiddeware.cs:line 19
+2023-06-09 11:45:32.861 +05:00 [ERR] Internal IDENTITY server error!
+System.ArgumentException: IDX12401: Expires: '09.06.2023 6:45:32' must be after NotBefore: '09.06.2023 6:45:32'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken..ctor(String issuer, String audience, IEnumerable`1 claims, Nullable`1 notBefore, Nullable`1 expires, SigningCredentials signingCredentials)
+   at Marketplace.Services.Identity.Managers.JwtTokenManager.CreateJwtToken(User user) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\JwtTokenManager.cs:line 35
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 60
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.IdentityErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\IdentityErrorHandlerMiddeware.cs:line 19
+2023-06-09 11:46:37.205 +05:00 [ERR] Internal IDENTITY server error!
+System.ArgumentException: IDX12401: Expires: '09.06.2023 6:46:37' must be after NotBefore: '09.06.2023 6:46:37'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken..ctor(String issuer, String audience, IEnumerable`1 claims, Nullable`1 notBefore, Nullable`1 expires, SigningCredentials signingCredentials)
+   at Marketplace.Services.Identity.Managers.JwtTokenManager.CreateJwtToken(User user) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\JwtTokenManager.cs:line 35
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 60
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.IdentityErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\IdentityErrorHandlerMiddeware.cs:line 19
+2023-06-09 11:52:03.116 +05:00 [ERR] Internal IDENTITY server error!
+System.ArgumentException: IDX12401: Expires: '09.06.2023 6:52:02' must be after NotBefore: '09.06.2023 6:52:02'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken..ctor(String issuer, String audience, IEnumerable`1 claims, Nullable`1 notBefore, Nullable`1 expires, SigningCredentials signingCredentials)
+   at Marketplace.Services.Identity.Managers.JwtTokenManager.CreateJwtToken(User user) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\JwtTokenManager.cs:line 35
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 60
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.IdentityErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\IdentityErrorHandlerMiddeware.cs:line 19
+2023-06-09 11:52:30.044 +05:00 [ERR] Internal IDENTITY server error!
+System.ArgumentException: IDX12401: Expires: '09.06.2023 6:52:29' must be after NotBefore: '09.06.2023 6:52:29'.
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken..ctor(String issuer, String audience, IEnumerable`1 claims, Nullable`1 notBefore, Nullable`1 expires, SigningCredentials signingCredentials)
+   at Marketplace.Services.Identity.Managers.JwtTokenManager.CreateJwtToken(User user) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\JwtTokenManager.cs:line 35
+   at Marketplace.Services.Identity.Managers.UserManager.LoginAsync(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Managers\UserManager.cs:line 60
+   at Marketplace.Services.Identity.Controllers.AccountController.Login(LoginUserModel model) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Controllers\AccountController.cs:line 45
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Marketplace.Services.Identity.Middleware.IdentityErrorHandlerMiddleware.Invoke(HttpContext httpContext) in C:\C#\WepProjects\Marketplace\Marketplace.Services.Identity\Middleware\IdentityErrorHandlerMiddeware.cs:line 19
