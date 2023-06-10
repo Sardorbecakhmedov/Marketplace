@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Marketplace.Services.Identity.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20230608134911_IdentityDb")]
-    partial class IdentityDb
+    [Migration("20230610002337_FirstMg")]
+    partial class FirstMg
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,9 @@ namespace Marketplace.Services.Identity.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()

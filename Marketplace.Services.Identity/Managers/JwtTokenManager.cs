@@ -39,7 +39,7 @@ public class JwtTokenManager : IJwtManager
             claims: claims,
             signingCredentials: signingCredentials,
             notBefore: utcNow,
-            expires: utcNow.AddMinutes(_jwtOptions.ExpiresMinutes)
+            expires: utcNow.AddDays(_jwtOptions.Expires)
         );
 
         var jwtToken = new JwtSecurityTokenHandler().WriteToken(jwtSecurity);

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Marketplace.Services.Identity.Migrations
 {
     /// <inheritdoc />
-    public partial class IdentityDb : Migration
+    public partial class FirstMg : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,8 @@ namespace Marketplace.Services.Identity.Migrations
                     Email = table.Column<string>(type: "text", nullable: false),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
                     UserRole = table.Column<int>(type: "integer", nullable: false),
-                    PasswordHash = table.Column<string>(type: "text", nullable: false)
+                    PasswordHash = table.Column<string>(type: "text", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {

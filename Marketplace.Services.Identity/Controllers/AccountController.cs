@@ -67,7 +67,7 @@ public class AccountController : ControllerBase
         return Ok(userModels);
     }
 
-    [HttpGet("{userName}")]
+    [HttpGet("get_user/{userName}")]
     public async Task<IActionResult> GetUser(string userName)
     {
         var user = await _userManager.GetUserAsync(userName);
@@ -77,7 +77,7 @@ public class AccountController : ControllerBase
         return Ok(userModel);
     }
 
-    [HttpGet("{userId}")]
+    [HttpGet("get_user/{userId}")]
     public async Task<IActionResult> GetUser(Guid userId)
     {
         var user = await _userManager.GetUserAsync(userId);
@@ -87,6 +87,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPut("update")]
+    [Authorize]
     public async Task<IActionResult> Update([FromForm] UpdateUserModel model)
     {
         var user = await _userManager.UpdateAsync(model);
@@ -107,6 +108,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpDelete("{userId}")]
+    [Authorize]
     public async Task<IActionResult> Delete(Guid userId)
     {
         await _userManager.DeleteAsync(userId);

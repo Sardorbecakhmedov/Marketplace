@@ -45,7 +45,7 @@ public class UserManager : IUserManager
 
     public async Task<string> LoginAsync(LoginUserModel model)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username == model.UserName);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username == model.UserName && !user.IsDeleted);
 
         if (user != null)
         {
@@ -67,24 +67,24 @@ public class UserManager : IUserManager
 
     public async Task<List<User>> GetAllUsersAsync()
     {
-        return await _dbContext.Users.ToListAsync();
+        return await _dbContext.Users.Where(user => !user.IsDeleted).ToListAsync();
     }
         
     public async Task<User> GetUserAsync(Guid userId)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == userId);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == userId && !user.IsDeleted);
         return user ?? throw new Exception("User not found!");
     }
 
     public async Task<User> GetUserAsync(string userName)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username == userName);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username == userName && !user.IsDeleted);
         return user ?? throw new Exception("User not found!");
     }
 
     public async Task<User> UpdateAsync(UpdateUserModel model)
     {
-        var user = await GetUserAsync(_userProvider.UserId);
+        var user = await GetUserAsync(_userProvider.UserId );
 
         user.Username = model.Username ?? user.Username;
         user.Email = model.Email ?? user.Email;
@@ -101,7 +101,7 @@ public class UserManager : IUserManager
 
     public async Task DeleteAsync(Guid userId)
     {
-        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == userId);
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == userId && !user.IsDeleted);
 
         if (user is null)
         {

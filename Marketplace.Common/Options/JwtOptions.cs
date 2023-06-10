@@ -5,5 +5,5 @@ public class JwtOptions
     public string SecretKey { get; set; } = null!;
     public string ValidIssuer { get; set; } = null!;
     public string ValidAudience { get; set; } = null!;
-    public double ExpiresMinutes { get; set; } 
+    public double Expires { get; set; } 
 }

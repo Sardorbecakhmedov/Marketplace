@@ -6,5 +6,5 @@ public interface IChatManager
 {
     Task SaveMessageAsync(NewMessageModel model);
     Task<List<MessageModel>> GetChatMessagesAsync(Guid chatId);
-    Task<List<ChatModel>> GetChatsAsync(Guid userId);
+    Task<List<ChatModel>> GetChatsAsync();
 }   

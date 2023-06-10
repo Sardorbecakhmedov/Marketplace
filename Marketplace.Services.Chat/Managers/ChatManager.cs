@@ -65,16 +65,46 @@ public class ChatManager : IChatManager
         return messages.Select(message => new MessageModel(message)).ToList();
     }
 
-    public async Task<List<ChatModel>> GetChatsAsync(Guid userId)
+    public async Task<List<ChatModel>> GetChatsAsync()
     {
         var userChats = await _dbContext.Chats.Where(chat =>
-            chat.UserIds.Contains(userId)).ToListAsync();
+            chat.UserIds.Contains(_userProvider.UserId)).ToListAsync();
 
-        return userChats.Select(chat => new ChatModel
+        var chatModels = GetChatModels(userChats);
+
+        return chatModels;
+        /*  return userChats.Select(chat => new ChatModel
+          {
+              Id = chat.Id,
+              ToUsername = chat.ToUsername,
+              FromUserId = chat.UserIds.First(id => id != userId)
+          }).ToList()*/;
+    }
+
+    private List<ChatModel> GetChatModels(List<Entities.Chat> userChats)
+    {
+        var chatModels = new List<ChatModel>();
+
+        foreach (var chat in userChats)
         {
-            Id = chat.Id,
-            ToUsername = chat.ToUsername,
-            FromUserId = chat.UserIds.First(id => id != userId)
-        }).ToList();
+            var chatModel = new ChatModel
+            {
+                Id = chat.Id,
+                ToUsername = chat.ToUsername,
+            };
+
+            var fromUserId = chat.UserIds.FirstOrDefault(id => id != _userProvider.UserId);
+
+            if (!string.IsNullOrEmpty(fromUserId.ToString()))
+            {
+                chatModel.FromUserId = fromUserId;
+                chatModels.Add(chatModel);
+            }
+            else
+            {
+                chatModel.FromUserId = chat.UserIds.First(id => id == _userProvider.UserId);
+            }
+        }
+        return chatModels;
     }
 }

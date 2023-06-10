@@ -37,7 +37,7 @@ public static class ExtensionAddJwtConfiguration
                 {
                     OnMessageReceived = async context =>
                     {
-/*                      /* Agar requestni headerida 'Authorization'
+                      /* Agar requestni headerida 'Authorization'
                             nomi bilan token junatilmasa
                             tokenni requestni querysidan olish */
 

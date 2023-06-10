@@ -29,10 +29,10 @@ public class ChatController : ControllerBase
         return Ok();
     }
 
-    [HttpGet("get_chats/{userId}")]
-    public async Task<List<ChatModel>> GetChatsAsync(Guid userId)
+    [HttpGet("get_chats")]
+    public async Task<List<ChatModel>> GetChatsAsync()
     {
-        return await _chatManager.GetChatsAsync(userId);
+        return await _chatManager.GetChatsAsync();
     }
 
     [HttpGet("get_messages/{chatId}")]
