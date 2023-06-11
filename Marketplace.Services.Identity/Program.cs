@@ -11,13 +11,6 @@ var logger = CustomLogger
 
 builder.Logging.AddSerilog(logger);
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-});
-
-builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();

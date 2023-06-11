@@ -1,4 +1,4 @@
-﻿using Marketplace.Common.Providers;
+﻿using Marketplace.Common.Helper;
 using Marketplace.Services.Identity.Interfaces;
 using Marketplace.Services.Identity.Models;
 using Microsoft.AspNetCore.Authorization;

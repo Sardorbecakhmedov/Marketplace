@@ -35,7 +35,7 @@ public static class ExtensionAddJwtConfiguration
 
                 options.Events = new JwtBearerEvents()
                 {
-                    OnMessageReceived = async context =>
+                    OnMessageReceived = context =>
                     {
                       /* Agar requestni headerida 'Authorization'
                             nomi bilan token junatilmasa
@@ -54,6 +54,8 @@ public static class ExtensionAddJwtConfiguration
                             var accessToken = context.Request.Query["token"];
                             context.Token = accessToken;
                         }
+
+                        return Task.CompletedTask;
                     }
                 };
             });

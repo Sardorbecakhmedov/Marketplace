@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 
-namespace Marketplace.Common.Providers;
+namespace Marketplace.Common.Helper;
 
 public class UserProvider
 {
@@ -15,5 +15,4 @@ public class UserProvider
     private HttpContext? Context => _contextAccessor.HttpContext;
     public string Username => Context?.User.FindFirstValue(ClaimTypes.Name)!;
     public Guid UserId => Guid.Parse(Context?.User.FindFirstValue(ClaimTypes.NameIdentifier)!);
-
 }

@@ -1,4 +1,4 @@
-﻿using Marketplace.Common.Providers;
+﻿using Marketplace.Common.Helper;
 using Marketplace.Services.Identity.Entities;
 using Marketplace.Services.Identity.IdentityContext;
 using Marketplace.Services.Identity.Interfaces;
@@ -47,7 +47,7 @@ public class UserManager : IUserManager
     {
         var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Username == model.UserName && !user.IsDeleted);
 
-        if (user != null)
+        if (user is not null)
         {
             var result = new PasswordHasher<User>()
                 .VerifyHashedPassword(user, user.PasswordHash, model.Password);
@@ -88,6 +88,7 @@ public class UserManager : IUserManager
 
         user.Username = model.Username ?? user.Username;
         user.Email = model.Email ?? user.Email;
+        user.UpdatedAt = DateTime.UtcNow;
 
         if (!string.IsNullOrEmpty(model.Password))
         {

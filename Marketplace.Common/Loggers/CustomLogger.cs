@@ -4,7 +4,7 @@ using Serilog.Events;
 
 namespace Marketplace.Common.Loggers;
 
-public static class CustomLogger
+public class CustomLogger
 {
     public static Serilog.Core.Logger WriteLogToFileSendToTelegram(IConfiguration configuration, string fileName = "logger.txt")
     {

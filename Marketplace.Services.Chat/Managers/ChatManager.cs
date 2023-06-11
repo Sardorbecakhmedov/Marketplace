@@ -1,10 +1,9 @@
-﻿using Marketplace.Common.Providers;
+﻿using Marketplace.Common.Helper;
 using Marketplace.Services.Chat.ChatContext;
 using Marketplace.Services.Chat.Entities;
 using Marketplace.Services.Chat.Interfaces;
 using Marketplace.Services.Chat.Models;
 using Microsoft.EntityFrameworkCore;
-
 namespace Marketplace.Services.Chat.Managers;
 
 public class ChatManager : IChatManager
@@ -22,7 +21,7 @@ public class ChatManager : IChatManager
     {
         var chat = GetOrCreateUserChat(model);
 
-        var message = new Message()
+        var message = new Message
         {
             ChatId = chat.Id,
             MessageText = model.MessageText,
@@ -70,7 +69,7 @@ public class ChatManager : IChatManager
         var userChats = await _dbContext.Chats.Where(chat =>
             chat.UserIds.Contains(_userProvider.UserId)).ToListAsync();
 
-        var chatModels = GetChatModels(userChats);
+        var chatModels = MapToChatModels(userChats);
 
         return chatModels;
         /*  return userChats.Select(chat => new ChatModel
@@ -81,7 +80,7 @@ public class ChatManager : IChatManager
           }).ToList()*/;
     }
 
-    private List<ChatModel> GetChatModels(List<Entities.Chat> userChats)
+    private List<ChatModel> MapToChatModels(List<Entities.Chat> userChats)
     {
         var chatModels = new List<ChatModel>();
 

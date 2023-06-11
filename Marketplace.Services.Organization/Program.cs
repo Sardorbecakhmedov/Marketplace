@@ -1,16 +1,17 @@
 using Marketplace.Common.Loggers;
-using Marketplace.Services.Chat.Extensions;
+using Marketplace.Services.Organization.Extensions;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var logger = CustomLogger
-    .WriteLogToFileSendToTelegram(builder.Configuration, "ChatLogger.txt");
+    .WriteLogToFileSendToTelegram(builder.Configuration, "OrganizationLogger.txt");
+
 builder.Logging.AddSerilog(logger);
 
-builder.Services.AddChatServices(builder.Configuration);
+builder.Services.AddOrganizationServices(builder.Configuration);
 
-var app = builder.Build();
+var app = builder.Build(); 
 
 if (app.Environment.IsDevelopment())
 {
@@ -25,9 +26,9 @@ app.UseCors(cors =>
         .AllowAnyMethod();
 });
 
-//app.AutoMigrateChatDb();
-app.UseHttpsRedirection();
+//app.AutoMigrateOrganizationDb();
 
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
