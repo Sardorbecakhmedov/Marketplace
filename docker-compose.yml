@@ -1,0 +1,90 @@
+version: '3.7'
+
+networks:
+  marketplace:
+    driver: bridge
+
+services:
+  identity:
+    image: identity_image
+    container_name: identity_container
+    build: 
+      context: .
+      dockerfile: Dockerfile.Identity
+    ports:
+      - "7296:80"
+    depends_on:
+      - identity_db
+
+  chat:
+    image: chat_image
+    container_name: chat_container
+    build: 
+      context: .
+      dockerfile: Dockerfile.Chat
+    ports:
+      - "7186:80"
+    depends_on:
+      - chat_db
+
+  organization:
+    image: organization_image
+    container_name: organization_container
+    build: 
+      context: .
+      dockerfile: Dockerfile.Organization
+    ports:
+      - "7055:80"
+    depends_on:
+      - organization_db
+
+
+  identity_db:
+    image: postgres:latest
+    container_name: identity_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: marketplace_db
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - marketplace
+    volumes:
+      - identity_db_data:/var/lib/postgresql/data
+
+  chat_db:
+    image: postgres:latest
+    container_name: chat_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: marketplace_db
+    ports:
+      - "5433:5432"
+    restart: always
+    networks:
+      - marketplace
+    volumes:
+      - chat_db_data:/var/lib/postgresql/data
+
+  organization_db:
+    image: postgres:latest
+    container_name: organization_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: marketplace_db
+    ports:
+      - "5434:5432"
+    restart: always
+    networks:
+      - marketplace
+    volumes:
+      - organization_db_data:/var/lib/postgresql/data
+
+volumes:
+  identity_db_data:
+  chat_db_data:
+  organization_db_data:
