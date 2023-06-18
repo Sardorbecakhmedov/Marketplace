@@ -39,6 +39,14 @@ public class OrganizationOwnerFilterAttribute : ActionFilterAttribute
                 {
                     context.Result = new ForbidResult("User role, not owner!");
                 }
+                else
+                {
+                    await next();
+                }
+            }
+            else
+            {
+                context.Result = new NotFoundObjectResult("ActionArguments not found!");
             }
         }
         else

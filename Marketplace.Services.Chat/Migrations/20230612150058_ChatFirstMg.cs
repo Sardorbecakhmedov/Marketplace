@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Marketplace.Services.Chat.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMg : Migration
+    public partial class ChatFirstMg : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

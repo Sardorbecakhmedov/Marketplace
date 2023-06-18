@@ -2,8 +2,10 @@
 using Marketplace.Services.Organization.Interfaces;
 using Marketplace.Services.Organization.Models.CreateModels;
 using Marketplace.Services.Organization.Models.UpdateModels;
+using Marketplace.Services.Organization.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 
 namespace Marketplace.Services.Organization.Controllers;
 
@@ -17,15 +19,25 @@ public class OrganizationController : ControllerBase
     public OrganizationController(IOrganizationManager organizationManager)
     {
         _organizationManager = organizationManager;
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> CreateOrganizationAsync([FromForm] CreateOrganizationModel model)
+    } 
+    
+    /*[HttpPost]
+    public async Task<ActionResult<OrganizationViewModel>> CreateOrganization([FromForm] IFormFile fileModel,
+        [FromBody] CreateOrganizationModel orgModel)
     {
-        return Ok(await _organizationManager.CreateAsync(model));
+        return Ok(await _organizationManager.CreateAsync(fileModel, orgModel));
+    }*/
+
+
+    [HttpPost("{fileModel}")]
+    public async Task<IActionResult> CreateOrganizationAsync(IFormFile? fileModel, [FromBody] CreateOrganizationModel model)
+    {
+        return Ok(await _organizationManager.CreateAsync(fileModel, model));
     }
 
+  
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> GetAllOrganizationsAsync()
     {
         return Ok(await _organizationManager.GetAllOrganizations());
@@ -56,3 +68,5 @@ public class OrganizationController : ControllerBase
         return Ok("Success, Organization deleted!");
     }
 }
+
+

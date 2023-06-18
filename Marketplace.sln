@@ -5,17 +5,9 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Services.Identity", "Marketplace.Services.Identity\Marketplace.Services.Identity.csproj", "{CA88765B-2AD9-4B2F-A636-05F760CB4965}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Marketplace.Services.Identity", "Marketplace.Services.Identity", "{E88A5146-9154-4895-9AAB-84BACA9DBB28}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Macketplace.Common", "Macketplace.Common", "{9C50BB73-5709-47CE-A537-B0031194B839}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Common", "Marketplace.Common\Marketplace.Common.csproj", "{A6B7DDF7-843D-4E8C-8706-94C1A5AB8342}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Marketplace.Services.Chat", "Marketplace.Services.Chat", "{0AE98EAD-BA37-4364-8AE7-37ED17A2E1BD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Services.Chat", "Marketplace.Services.Chat\Marketplace.Services.Chat.csproj", "{C6AEDB88-EE9A-4FC5-A93C-330E5C868EE4}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Marketplace.Services.Organization", "Marketplace.Services.Organization", "{EC1C90F7-E010-4B2C-829B-3137B984B545}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Services.Organization", "Marketplace.Services.Organization\Marketplace.Services.Organization.csproj", "{0113E0F1-C03E-4008-8B3F-9EBBBA399546}"
 EndProject
@@ -23,6 +15,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Marketplace.Services.Products", "Marketplace.Services.Products\Marketplace.Services.Products.csproj", "{C41A8CA8-8C91-465D-B9B7-C166B1CE5224}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiServices", "ApiServices", "{1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F8D1AA7F-FB20-4764-9CA6-D811EBB7134E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{09293C76-84A4-40F8-A26A-C144FAC5D871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Api", "Marketplace.Api\Marketplace.Api.csproj", "{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,15 +48,25 @@ Global
 		{0113E0F1-C03E-4008-8B3F-9EBBBA399546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0113E0F1-C03E-4008-8B3F-9EBBBA399546}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0113E0F1-C03E-4008-8B3F-9EBBBA399546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41A8CA8-8C91-465D-B9B7-C166B1CE5224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41A8CA8-8C91-465D-B9B7-C166B1CE5224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41A8CA8-8C91-465D-B9B7-C166B1CE5224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41A8CA8-8C91-465D-B9B7-C166B1CE5224}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CA88765B-2AD9-4B2F-A636-05F760CB4965} = {E88A5146-9154-4895-9AAB-84BACA9DBB28}
-		{A6B7DDF7-843D-4E8C-8706-94C1A5AB8342} = {9C50BB73-5709-47CE-A537-B0031194B839}
-		{C6AEDB88-EE9A-4FC5-A93C-330E5C868EE4} = {0AE98EAD-BA37-4364-8AE7-37ED17A2E1BD}
-		{0113E0F1-C03E-4008-8B3F-9EBBBA399546} = {EC1C90F7-E010-4B2C-829B-3137B984B545}
+		{CA88765B-2AD9-4B2F-A636-05F760CB4965} = {1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}
+		{A6B7DDF7-843D-4E8C-8706-94C1A5AB8342} = {1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}
+		{C6AEDB88-EE9A-4FC5-A93C-330E5C868EE4} = {1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}
+		{0113E0F1-C03E-4008-8B3F-9EBBBA399546} = {1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}
+		{C41A8CA8-8C91-465D-B9B7-C166B1CE5224} = {1E28676B-AD9D-49DF-86BA-E5797D5C6BF0}
+		{1C4A08D9-F3AF-4C46-ADCD-E8044D6FC2FA} = {09293C76-84A4-40F8-A26A-C144FAC5D871}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89DDE0AE-3D98-4284-A855-3B37A23FE2D8}

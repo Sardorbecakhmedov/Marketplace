@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Marketplace.Services.Chat.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    [Migration("20230610002602_FirstMg")]
-    partial class FirstMg
+    [Migration("20230612150058_ChatFirstMg")]
+    partial class ChatFirstMg
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

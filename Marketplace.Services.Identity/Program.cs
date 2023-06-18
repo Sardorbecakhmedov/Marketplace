@@ -21,6 +21,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//app.UseSwagger();
+//app.UseSwaggerUI();
+
+
 app.UseCors(cors =>
 {
     cors.AllowAnyHeader()
@@ -30,6 +34,7 @@ app.UseCors(cors =>
 
 app.UseIdentityErrorHandlerMiddleware();
 //app.AutoMigrateIdentityDb();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

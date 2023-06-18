@@ -18,6 +18,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//app.UseSwagger();
+//app.UseSwaggerUI();
+
 app.UseCors(cors =>
 {
     cors.AllowAnyOrigin()
@@ -26,6 +29,7 @@ app.UseCors(cors =>
 });
 
 //app.AutoMigrateChatDb();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

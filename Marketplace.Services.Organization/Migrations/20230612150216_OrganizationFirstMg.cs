@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Marketplace.Services.Organization.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstMg : Migration
+    public partial class OrganizationFirstMg : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

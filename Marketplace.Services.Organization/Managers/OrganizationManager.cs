@@ -24,7 +24,7 @@ public class OrganizationManager : IOrganizationManager
         _fileManager = fileManager;
     }
 
-    public async Task<OrganizationViewModel> CreateAsync(CreateOrganizationModel orgModel)
+    public async Task<OrganizationViewModel> CreateAsync(IFormFile? fileModel,  CreateOrganizationModel orgModel)
     {
         var organization = new Entities.Organization
         {
@@ -35,9 +35,9 @@ public class OrganizationManager : IOrganizationManager
             IsDeleted = false,
         };
 
-        if (orgModel.LogoFile is not null)
+        if (fileModel is not null)
         {
-            organization.LogoPath = await _fileManager.SaveFileToWwwrootAsync(orgModel.LogoFile, FolderName);
+            organization.LogoPath = await _fileManager.SaveFileToWwwrootAsync(fileModel, FolderName);
         }
 
         if (orgModel.Addresses is not null)
@@ -45,25 +45,17 @@ public class OrganizationManager : IOrganizationManager
             organization.OrganizationAddresses = new List<OrganizationAddress>();
             organization.OrganizationAddresses = orgModel.Addresses.Select(model => new OrganizationAddress
             {
-                Id = Guid.NewGuid(),
-                OrganizationId = organization.Id,
-                Organization = organization,
                 Address = model.Address
             }).ToList();
-
-            await _dbContext.OrganizationAddress.AddRangeAsync(organization.OrganizationAddresses);
         }
 
         var organizationUser = new OrganizationUser
         {
-            OrganizationId = organization.Id,
-            Organization = organization,
             UserId = _userProvider.UserId,
             OrganizationUserRole = OrganizationUserRole.Owner
         };
 
         organization.OrganizationUsers = new List<OrganizationUser> { organizationUser };
-        await _dbContext.OrganizationUsers.AddRangeAsync(organization.OrganizationUsers);
         await _dbContext.Organizations.AddAsync(organization);
         await _dbContext.SaveChangesAsync();
 

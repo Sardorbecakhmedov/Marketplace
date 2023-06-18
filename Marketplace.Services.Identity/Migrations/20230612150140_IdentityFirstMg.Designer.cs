@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Marketplace.Services.Identity.Migrations
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20230610002337_FirstMg")]
-    partial class FirstMg
+    [Migration("20230612150140_IdentityFirstMg")]
+    partial class IdentityFirstMg
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,9 @@ namespace Marketplace.Services.Identity.Migrations
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("UserRole")
                         .HasColumnType("integer");

@@ -5,6 +5,17 @@ networks:
     driver: bridge
 
 services:
+  marketplace:
+    image: marketplace_image
+    container_name: marketplace_container
+    build:
+        context: .
+        dockerfile: Dockerfile.MarketplaceApi
+    ports:
+        - '7000:80' 
+    networks:
+      - marketplace
+
   identity:
     image: identity_image
     container_name: identity_container
@@ -12,9 +23,11 @@ services:
       context: .
       dockerfile: Dockerfile.Identity
     ports:
-      - "7296:80"
+      - "7001:80"
     depends_on:
       - identity_db
+    networks:
+      - marketplace
 
   chat:
     image: chat_image
@@ -23,9 +36,11 @@ services:
       context: .
       dockerfile: Dockerfile.Chat
     ports:
-      - "7186:80"
+      - "7002:80"
     depends_on:
       - chat_db
+    networks:
+      - marketplace
 
   organization:
     image: organization_image
@@ -34,18 +49,31 @@ services:
       context: .
       dockerfile: Dockerfile.Organization
     ports:
-      - "7055:80"
+      - "7003:80"
     depends_on:
       - organization_db
+    networks:
+      - marketplace
+  
+  product:
+    image: product_image
+    container_name: product_container
+    build: 
+      context: .
+      dockerfile: Dockerfile.Product
+    ports:
+      - '7004:80'
+    depends_on:
+      - product_mongodb
+    networks:
+      - marketplace
 
 
   identity_db:
     image: postgres:latest
     container_name: identity_db
     environment:
-      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: marketplace_db
     ports:
       - "5432:5432"
     restart: always
@@ -58,9 +86,7 @@ services:
     image: postgres:latest
     container_name: chat_db
     environment:
-      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: marketplace_db
     ports:
       - "5433:5432"
     restart: always
@@ -73,9 +99,7 @@ services:
     image: postgres:latest
     container_name: organization_db
     environment:
-      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: marketplace_db
     ports:
       - "5434:5432"
     restart: always
@@ -84,7 +108,22 @@ services:
     volumes:
       - organization_db_data:/var/lib/postgresql/data
 
+  product_mongodb:
+    image: mongo:latest
+    container_name: product_mongodb
+    restart: always
+    ports:
+        - 27018:27017 
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: product_username
+      MONGO_INITDB_ROOT_PASSWORD: product_password
+    networks:
+      - marketplace
+    volumes:
+      - product_mongodb_data:/var/lib/product_mongodb/data
+
 volumes:
   identity_db_data:
   chat_db_data:
   organization_db_data:
+  product_mongodb_data:

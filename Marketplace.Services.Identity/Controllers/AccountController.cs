@@ -88,6 +88,7 @@ public class AccountController : ControllerBase
 
     [HttpPut("update")]
     [Authorize]
+    [ProducesResponseType(401)]
     public async Task<IActionResult> Update([FromForm] UpdateUserModel model)
     {
         var user = await _userManager.UpdateAsync(model);
@@ -98,6 +99,7 @@ public class AccountController : ControllerBase
 
     [HttpGet("profile")]
     [Authorize]
+    [ProducesResponseType(401)]
     public async Task<IActionResult> Profile()
     {
         var user = await _userManager.GetUserAsync(_userProvider.UserId);
@@ -109,6 +111,7 @@ public class AccountController : ControllerBase
 
     [HttpDelete("{userId}")]
     [Authorize]
+    [ProducesResponseType(401)]
     public async Task<IActionResult> Delete(Guid userId)
     {
         await _userManager.DeleteAsync(userId);
