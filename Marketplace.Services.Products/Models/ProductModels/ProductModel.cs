@@ -1,11 +1,7 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿namespace Marketplace.Services.Products.Models.ProductModels;
 
-namespace Marketplace.Services.Products.Entities;
-
-public class Product
+public class ProductModel
 {
-    [BsonId]
     public Guid Id { get; set; }
     public string ProductName { get; set; } = null!;
     public string Description { get; set; } = null!;
@@ -14,4 +10,5 @@ public class Product
     public string OrganizationId { get; set; } = null!;
 
     public Dictionary<string, string>? Characteristics { get; set; }
+    public List<string>? ImagePaths { get; set; }
 }

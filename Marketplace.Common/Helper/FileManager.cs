@@ -14,7 +14,7 @@ public class FileManager : IFileManager
 
     private void CheckDirectory(string folderName)
     {
-        if (!Directory.Exists(folderName))
+        if (!Directory.Exists(Path.Combine(RootFolderName, folderName)))
         {
             Directory.CreateDirectory(Path.Combine(RootFolderName, folderName));
         }

@@ -30,6 +30,8 @@ app.UseCors(cors =>
         .AllowAnyOrigin();
 });
 
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

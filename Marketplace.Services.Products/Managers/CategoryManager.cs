@@ -2,7 +2,6 @@
 using Marketplace.Services.Products.HelperServices;
 using Marketplace.Services.Products.Interfaces;
 using Marketplace.Services.Products.Models.CategoryModels;
-using Marketplace.Services.Products.Models.CategoryModels.CategoryViewModel;
 using MongoDB.Driver;
 
 namespace Marketplace.Services.Products.Managers;

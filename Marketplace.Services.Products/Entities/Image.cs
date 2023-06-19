@@ -2,7 +2,7 @@
 
 namespace Marketplace.Services.Products.Entities;
 
-public class ProductImages
+public class Image
 {
     [BsonId]
     public Guid Id { get; set; }

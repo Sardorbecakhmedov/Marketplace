@@ -17,7 +17,8 @@
 
   <ItemGroup>
     <Folder Include="Loggers\" />
-    <Folder Include="wwwroot\ProductImages\" />
+    <Folder Include="Models\ImageModel\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
